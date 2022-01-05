@@ -1,0 +1,42 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use App\Models\Curency;
+
+class CurrencySeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('curencies')->delete();
+        $curencies = [
+
+            [
+                'en'=> 'Dolar',
+                'ar'=> 'دولار'
+            ],
+            [
+                'en'=> 'Syp',
+                'ar'=> 'ل.س'
+            ],
+            [
+                'en'=> 'gene',
+                'ar'=> 'جنيه مصري'
+            ],
+
+
+        ];
+        foreach($curencies as $r) {
+            Curency::create(['curency_name'=>$r]);
+        }
+
+    }
+
+}
